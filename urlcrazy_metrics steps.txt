@@ -1,3 +1,6 @@
+This uses a Tool called urlcrazy
+Link to urbanAdeventurer's repo : https://github.com/urbanadventurer/urlcrazy/tree/master?tab=readme-ov-file
+
 Typo Types having the .com domains name itself
 
 Homoglyphs
@@ -21,6 +24,8 @@ All SLD
 
 Flow :
 
+All these steps were executed in Kali Linux Command Line Terminal
+
 1) echo "Typo Type,Typo Domain,IP,Country,NameServer,MailServer" > output.csv   //Run urlcrazy for a given URL
 urlcrazy [url] | awk -F ' {2,}' '{print $1 " " $2 "," $3 "," $4 "," $5 "," $6}' >> output.csv   :url=item-https://;
 
@@ -34,7 +39,7 @@ awk 'NR>=13 && NR%2==1' "$output_file" > "$output1_file"  //To take only lines w
 
 	//Takes the combined output in output2.csv and seperates URL category and URL
 
-
+To-do: Remove unnecessary categories of URLs nd do all requisite preprocessing
 
 
 
