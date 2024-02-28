@@ -1,0 +1,40 @@
+Typo Types having the .com domains name itself
+
+Homoglyphs
+Bit Flipping
+Homophones
+Singular or Pluralise 
+Vowel Swap
+Insert Dash
+Missing Dot
+Character Insertion
+Double Replacement
+Character Replacement
+Character Swap
+Character Repeat
+Character Omission
+
+Bizarre Domain Names
+
+Wrong TLD
+All SLD
+
+Flow :
+
+1) echo "Typo Type,Typo Domain,IP,Country,NameServer,MailServer" > output.csv   //Run urlcrazy for a given URL
+urlcrazy [url] | awk -F ' {2,}' '{print $1 " " $2 "," $3 "," $4 "," $5 "," $6}' >> output.csv   :url=item-https://;
+
+2)output_file="output.csv"                                
+output1_file="output1.csv"
+awk 'NR>=13 && NR%2==1' "$output_file" > "$output1_file"  //To take only lines with URLs
+
+3)awk -F',' '{print $1}' output1.csv > output2.csv   //Take only column with Type & URL
+
+4)awk 'NR == 1 {print "Modification,URL"; next} {url=$NF; $(NF--)=""; modification=$0; print modification "," url}' output2.csv > final_output.csv 
+
+	//Takes the combined output in output2.csv and seperates URL category and URL
+
+
+
+
+
